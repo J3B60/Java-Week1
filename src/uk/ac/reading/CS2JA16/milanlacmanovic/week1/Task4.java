@@ -1,5 +1,7 @@
 package uk.ac.reading.CS2JA16.milanlacmanovic.week1;
 
+import java.util.Arrays;
+
 import javax.swing.JOptionPane;
 
 public class Task4 {
@@ -19,16 +21,23 @@ public class Task4 {
 		int arraypos = 0;
 		for (int i = 0; i < names.length(); i++) {
 			if (Character.isUpperCase(names.charAt(i))) {
-				for (int j = 0; j < names.length() - i; j++) {
+				for (int j = i; j < names.length(); j++) {
 					if (!Character.isWhitespace(names.charAt(j))) {
-						temp[arraypos] = temp[arraypos] + String.valueOf(names.charAt(j));
+						if (temp[arraypos] == null) {
+							temp[arraypos] = String.valueOf(names.charAt(j));
+						}
+						else {
+							temp[arraypos] = temp[arraypos] + String.valueOf(names.charAt(j));
+						}
 					}
 					else {
+						arraypos++;
 						break;
 					}
 				}
 			}
 		} 
+		//System.out.println(Arrays.toString(temp));
 		return temp;
 	}
 	
@@ -42,11 +51,11 @@ public class Task4 {
 		for (int i = 0; i < numPeople; i++) {
 			System.out.println(allNames[i] + "\n");
 		}
-		String nameSplit [] = names.split(" ");
-		for (int i = 0; i < numPeople; i++) {
-			System.out.println(nameSplit[i] + "\n");
-		}
+		//String nameSplit [] = names.split(" ");
+		//for (int i = 0; i < numPeople; i++) {
+		//	System.out.println(nameSplit[i] + "\n");
+		//}
 	}
 }
 
-//My String splitter is not working, almost have the code working just need to tweak for loops - cant be botherd to go through it anymore, the split function works.
+//ITS ALLLIIVVVVVVEEEE
